@@ -30,5 +30,6 @@ StdAfx.h, StdAfx.cpp
 /////////////////////////////////////////////////////////////////////////////
 
 
-1. testCppEx 现在还是要依赖glog头文件才能用..  cppEx 需要包一下 或干脆 重新设计下cppEx头，把cppEx中的glog公开出去。
-2. ICppEx.h ... API宏
+1. testCppEx 现在还是要依赖glog头文件才能用..  cppEx 需要包一下 或干脆 重新设计下cppEx头，把cppEx中的glog公开出去。xxx
+2. ICppEx.h ... API宏 xxx
+3. log 打出去 带有cpp 信息，是否安全..

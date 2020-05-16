@@ -87,13 +87,13 @@ void NP_CPPEX::CMyToolLog::CreateConsoleLog(const char* chLogfilepath /*= nullpt
 		m_bConsole = true;
 
 		m_pIn = stdin;
-		// m_pOut = stdout;
+		m_pOut = stdout;
 		m_pErr = stderr;
 
 		AllocConsole();
 		SetConsoleTitle(wszConsoleTitle);
 		freopen_s(&m_pIn, "CONIN$", "r+t", stdin);
-		//freopen_s(&m_pOut, "CONOUT$", "w+t", stdout);
+		freopen_s(&m_pOut, "CONOUT$", "w+t", stdout);
 		freopen_s(&m_pErr, "CONOUT$", "w+t", stderr);
 
 		google::InitGoogleLogging("test glog");
@@ -116,6 +116,21 @@ void NP_CPPEX::CMyToolLog::DestroyConsoleLog()
 	google::ShutdownGoogleLogging();
 
 	fclose(stdin);
-	//fclose(stdout);
+	fclose(stdout);
 	fclose(stderr);
+}
+
+void NP_CPPEX::CMyToolLog::LOGINFO(const char* szLoginfo)
+{
+	LOG(INFO) << szLoginfo;
+}
+
+void NP_CPPEX::CMyToolLog::LOGWARRING(const char* szLogWarring)
+{
+	LOG(WARNING) << szLogWarring;
+}
+
+void NP_CPPEX::CMyToolLog::LOGERROR(const char* szLogError)
+{
+	LOG(ERROR) << szLogError;
 }

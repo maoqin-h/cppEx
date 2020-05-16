@@ -1,6 +1,10 @@
-#include "ICppEx.h"
+//#include "ICppEx.h"
 
-
+#ifdef CPPEX_EXPORTS
+#define CPPEX_API __declspec(dllexport)
+#else
+#define CPPEX_API __declspec(dllimport)
+#endif
 //// 此类是从 cppEx.dll 导出的
 //class CPPEX_API CcppEx {
 //public:
@@ -11,6 +15,7 @@
 //extern CPPEX_API int ncppEx;
 //
 //CPPEX_API int fncppEx(void);
+
 
 
 namespace NP_CPPEX
@@ -24,7 +29,7 @@ namespace NP_CPPEX
 	CPPEX_API bool IsFile(const char* szStr);
 
 
-	CPPEX_API class CMyToolLog
+	class CPPEX_API CMyToolLog
 	{
 	public:
 		CMyToolLog();
@@ -32,6 +37,10 @@ namespace NP_CPPEX
 
 		void CreateConsoleLog(const char* chLogfilepath = nullptr);
 		void DestroyConsoleLog();
+
+		static void LOGINFO(const char* szLoginfo);
+		static void LOGWARRING(const char* szLogWarring);
+		static void LOGERROR(const char* szLogError);
 	private:
 		bool	m_bConsole;			// 已创建console
 		FILE*	m_pIn;

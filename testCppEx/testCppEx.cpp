@@ -2,16 +2,22 @@
 //
 
 #include "stdafx.h"
+#include <stdlib.h>
 
 NP_CPPEX::CMyToolLog g_myLog;
 
 int main()
 {
-	g_myLog.CreateConsoleLog();
 
-	//LOG(INFO) << ""
+	NP_CPPEX::CMyToolLog::LOGINFO("this is loginfo 123456");
+	NP_CPPEX::CMyToolLog::LOGINFO("this is loginfo 654321");
+	NP_CPPEX::CMyToolLog::LOGWARRING("this is warring 654321");
+	NP_CPPEX::CMyToolLog::LOGERROR("this is error 654321");
 
-	g_myLog.DestroyConsoleLog();
+
+
+
+	system("pause");
     return 0;
 }
 
