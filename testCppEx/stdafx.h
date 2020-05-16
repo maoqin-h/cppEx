@@ -14,9 +14,11 @@
 
 // TODO:  在此处引用程序需要的其他头文件
 #include "../cppEx/ICppEx.h"
+#include "../cppEx/cppEx.h"
+
 
 #ifdef _DEBUG
-#pragma comment(lib, "./cppEx_d.lib")
+#pragma comment(lib, "../Debug/cppEx_d.lib")
 #else
-#pragma comment(lib, "./cppEx.lib")
+#pragma comment(lib, "./Release/cppEx.lib")
 #endif 

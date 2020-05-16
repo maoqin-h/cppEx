@@ -55,3 +55,67 @@ CPPEX_API bool NP_CPPEX::IsFile(const char* szStr)
 	std::tr2::sys::path tmpPath;
 	return false;
 }
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+
+const wchar_t* wszConsoleTitle = L"UsbMultiUpdate";
+
+NP_CPPEX::CMyToolLog::CMyToolLog()
+{
+	m_pIn = nullptr;
+	m_pOut = nullptr;
+	m_pErr = nullptr;
+	m_bConsole = false;
+	CreateConsoleLog();
+}
+
+NP_CPPEX::CMyToolLog::~CMyToolLog()
+{
+	DestroyConsoleLog();
+}
+
+void NP_CPPEX::CMyToolLog::CreateConsoleLog(const char* chLogfilepath /*= nullptr*/)
+{
+	// 检查glog 加载
+	if (!m_bConsole)
+	{
+		m_bConsole = true;
+
+		m_pIn = stdin;
+		// m_pOut = stdout;
+		m_pErr = stderr;
+
+		AllocConsole();
+		SetConsoleTitle(wszConsoleTitle);
+		freopen_s(&m_pIn, "CONIN$", "r+t", stdin);
+		//freopen_s(&m_pOut, "CONOUT$", "w+t", stdout);
+		freopen_s(&m_pErr, "CONOUT$", "w+t", stderr);
+
+		google::InitGoogleLogging("test glog");
+		google::SetStderrLogging(google::GLOG_INFO);
+
+		FLAGS_logtostderr = true;
+		FLAGS_colorlogtostderr = true;
+
+		FLAGS_logbufsecs = 0; // 设置可以缓冲日志的最大秒数 （0 实时输出）
+							  // FLAGS_stop_logging_if_full_disk = true;
+							  // FLAGS_log_prefix = true; // 设置日志前缀是否应该添加到每行输出
+
+							  // 目录必须是已经创建的
+		FLAGS_log_dir = "D:\\";
+	}
+}
+
+void NP_CPPEX::CMyToolLog::DestroyConsoleLog()
+{
+	google::ShutdownGoogleLogging();
+
+	fclose(stdin);
+	//fclose(stdout);
+	fclose(stderr);
+}

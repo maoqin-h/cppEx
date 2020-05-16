@@ -1,5 +1,4 @@
 #include "ICppEx.h"
-#include <filesystem>
 
 
 //// 此类是从 cppEx.dll 导出的
@@ -23,4 +22,21 @@ namespace NP_CPPEX
 	// 文件路径
 	CPPEX_API bool IsPath(const char* szStr);
 	CPPEX_API bool IsFile(const char* szStr);
+
+
+	CPPEX_API class CMyToolLog
+	{
+	public:
+		CMyToolLog();
+		virtual ~CMyToolLog();
+
+		void CreateConsoleLog(const char* chLogfilepath = nullptr);
+		void DestroyConsoleLog();
+	private:
+		bool	m_bConsole;			// 已创建console
+		FILE*	m_pIn;
+		FILE*	m_pOut;
+		FILE*	m_pErr;
+	};
+	
 }

@@ -14,3 +14,30 @@
 
 
 // TODO:  在此处引用程序需要的其他头文件
+#include <filesystem>
+
+
+#define GOOGLE_GLOG_DLL_DECL
+#define GLOG_NO_ABBREVIATED_SEVERITIES
+#include "glog/logging.h"
+
+
+#ifdef _DEBUG
+#ifdef _MT
+#ifdef _DLL
+#pragma comment(lib, "glog/lib/glogd.lib")
+#else
+#pragma comment(lib, "glog/lib/glogMTd.lib")
+#endif
+#endif
+#else
+#ifdef _MT
+#ifdef _DLL
+#pragma comment(lib, "glog/lib/glog.lib")
+#else
+#pragma comment(lib, "glog/lib/glogMT.lib")
+#endif
+#endif
+#endif
+
+
