@@ -11,12 +11,10 @@ int main()
 
 	NP_CPPEX::CMyToolLog::LOGINFO("this is loginfo 123456");
 	NP_CPPEX::CMyToolLog::LOGINFO("this is loginfo 654321");
-	NP_CPPEX::CMyToolLog::LOGWARRING("this is warring 654321");
+	NP_CPPEX::CMyToolLog::LOGWARNING("this is warning 654321");
 	NP_CPPEX::CMyToolLog::LOGERROR("this is error 654321");
 
-
-
-
+	OutputDebugString(L"ssss");
 	system("pause");
     return 0;
 }

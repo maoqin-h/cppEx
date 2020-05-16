@@ -35,12 +35,14 @@ namespace NP_CPPEX
 		CMyToolLog();
 		virtual ~CMyToolLog();
 
+		static void LOGINFO(const char* szLoginfo);
+		static void LOGWARNING(const char* szLogWarning);
+		static void LOGERROR(const char* szLogError);
+
+	protected:
 		void CreateConsoleLog(const char* chLogfilepath = nullptr);
 		void DestroyConsoleLog();
 
-		static void LOGINFO(const char* szLoginfo);
-		static void LOGWARRING(const char* szLogWarring);
-		static void LOGERROR(const char* szLogError);
 	private:
 		bool	m_bConsole;			// ÒÑ´´½¨console
 		FILE*	m_pIn;

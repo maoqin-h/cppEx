@@ -125,9 +125,9 @@ void NP_CPPEX::CMyToolLog::LOGINFO(const char* szLoginfo)
 	LOG(INFO) << szLoginfo;
 }
 
-void NP_CPPEX::CMyToolLog::LOGWARRING(const char* szLogWarring)
+void NP_CPPEX::CMyToolLog::LOGWARNING(const char* szLogWarning)
 {
-	LOG(WARNING) << szLogWarring;
+	LOG(WARNING) << szLogWarning;
 }
 
 void NP_CPPEX::CMyToolLog::LOGERROR(const char* szLogError)
