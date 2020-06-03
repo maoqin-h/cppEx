@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="TestMgr">
+      <UniqueIdentifier>{0583717a-5e29-4a7f-9a29-da95dc0e45b5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -24,6 +27,9 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="testMgr.h">
+      <Filter>TestMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -31,6 +37,9 @@
     </ClCompile>
     <ClCompile Include="testCppEx.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="testMgr.cpp">
+      <Filter>TestMgr</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

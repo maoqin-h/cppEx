@@ -47,7 +47,12 @@ int main()
 		TOOL_LOGWARNING("this is warning log");
 		TOOL_LOGERROR("this is error log");
 	};
-	test_func3();
+	//test_func3();
+
+	auto test_func4 = []() {
+
+	};
+	test_func4();
 
 
 	system("pause");
