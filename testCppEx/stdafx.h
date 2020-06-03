@@ -13,12 +13,12 @@
 #include <windows.h>
 
 // TODO:  在此处引用程序需要的其他头文件
-//#include "../cppEx/ICppEx.h"
+#define ENABLE_TOOLLOG
 #include "../cppEx/cppEx.h"
 
 
 #ifdef _DEBUG
 #pragma comment(lib, "../Debug/cppEx_d.lib")
 #else
-#pragma comment(lib, "./Release/cppEx.lib")
+#pragma comment(lib, "../Release/cppEx.lib")
 #endif 

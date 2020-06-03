@@ -4,23 +4,8 @@
 #include "stdafx.h"
 #include <stdlib.h>
 #include <iostream>
-
 using std::endl;
 using std::cout;
-
-NP_CPPEX::CMyToolLog g_myLog;
-
-
-// test2
-/*
-template <typename T, typename U>
-decltype(t + u) add(T t, U u)
-{
-// 返回值的作用域是在 t, u 之外，也是 之前。
-return t + u;
-}
-
-*/
 
 template <typename T, typename U>
 auto add(T t, U u) -> decltype(t + u) {
@@ -30,6 +15,8 @@ auto add(T t, U u) -> decltype(t + u) {
 
 int main()
 {
+	TOOL_LOGINSTANCE;
+
 	auto test_func1 = []() {
 		NP_CPPEX::CMyToolLog::LOGINFO("this is loginfo 123456");
 		NP_CPPEX::CMyToolLog::LOGINFO("this is loginfo 654321");
@@ -53,8 +40,14 @@ int main()
 		add(3, 3.0);
 		auto func_tmp = add<int, char>;
 	};
-	test_func2();
+	//test_func2();
 
+	auto test_func3 = []() {
+		TOOL_LOGINFO("this is info log");
+		TOOL_LOGWARNING("this is warning log");
+		TOOL_LOGERROR("this is error log");
+	};
+	test_func3();
 
 
 	system("pause");
